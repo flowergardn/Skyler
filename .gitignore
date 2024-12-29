@@ -1,0 +1,19 @@
+# ENV
+*.env
+!example.env
+
+# Typescript
+dist/
+
+# NodeJS
+node_modules/
+package-lock.json
+
+#IntelliJ
+.idea/
+
+*.sqlite
+/src/constants/*.toml
+!/src/constants/*.example.toml
+
+yarn-error.log
