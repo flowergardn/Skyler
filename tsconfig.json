@@ -27,6 +27,12 @@
 		"useUnknownInCatchVariables": false /* Default catch clause variables as 'unknown' instead of 'any'. */,
 		"alwaysStrict": false /* Ensure 'use strict' is always emitted. */,
 		"allowUnreachableCode": true /* Disable error reporting for unreachable code. */,
-		"skipLibCheck": true /* Skip type checking all .d.ts files. */
+		"skipLibCheck": true, /* Skip type checking all .d.ts files. */
+
+		/* Path Aliases */
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["./src/*"]
+		}
 	}
 }

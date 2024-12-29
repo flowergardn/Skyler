@@ -2,15 +2,21 @@ import 'reflect-metadata';
 
 import { importx } from '@discordx/importer';
 import { Client } from 'discordx';
-import { PrismaClient } from '@prisma/client';
+import { Database } from "bun:sqlite";
 import { env } from './env/server';
-
-export const prisma = new PrismaClient();
+import {IntentsBitField} from "discord.js";
 
 export const client = new Client({
-	intents: [],
+	intents: [
+		IntentsBitField.Flags.GuildMembers,
+		IntentsBitField.Flags.GuildMessages,
+		IntentsBitField.Flags.MessageContent,
+		IntentsBitField.Flags.Guilds
+	],
 	silent: false
 });
+
+export const db = new Database("./data.sqlite", { create: true });
 
 client.on('ready', async () => {
 	await client.clearApplicationCommands();
@@ -23,15 +29,17 @@ client.on('interactionCreate', (interaction) => {
 	client.executeInteraction(interaction);
 });
 
-async function start() {
+(async () => {
 	await importx(__dirname + '/commands/*.{js,ts}');
 	await client.login(env.TOKEN);
-}
 
-start()
-	.then(() => prisma.$disconnect())
-	.catch(async (e) => {
-		console.error(e);
-		await prisma.$disconnect();
-		process.exit(1);
-	});
+	db.run(`
+		CREATE TABLE IF NOT EXISTS "tickets" (
+			"id" TEXT PRIMARY KEY,
+			"createdBy" TEXT NOT NULL,
+			"type" TEXT NOT NULL,
+			"fields" TEXT NOT NULL
+		);
+	`
+	)
+})()

@@ -1,0 +1,13 @@
+[general]
+# The title of the ticket
+title = "Get general support"
+# The ID of the category the ticket will be created in
+category = "<your category id>"
+
+[[general.forms]]
+# The label of the form
+label = "Do you like cats?"
+# Whether the form is required or not
+required = true
+# The ID of the form, this will be shown in the embed
+custom_id = "likesCats"

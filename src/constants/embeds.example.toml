@@ -1,0 +1,9 @@
+[menu]
+# The color for the menu, in decimal
+color = 16731330
+# The title of the menu
+title = "Ticket Menu"
+# The description of the menu
+description = """
+    A general description of the ticket menu
+"""

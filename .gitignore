@@ -12,8 +12,8 @@ package-lock.json
 #IntelliJ
 .idea/
 
-# Prisma
-prisma/*
-!prisma/schema.prisma
+*.sqlite
+/src/constants/*.toml
+!/src/constants/*.example.toml
 
 yarn-error.log

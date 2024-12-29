@@ -5,7 +5,8 @@ require('dotenv').config();
 
 export const env = createEnv({
 	server: {
-		TOKEN: z.string()
+		TOKEN: z.string(),
+		LOGS_CHANNEL: z.string()
 	},
 	runtimeEnv: process.env
 });

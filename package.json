@@ -14,12 +14,10 @@
   "author": "Astrid",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^2.8.8",
-    "prisma": "^5.5.2"
+    "prettier": "^2.8.8"
   },
   "dependencies": {
     "@discordx/importer": "^1.1.10",
-    "@prisma/client": "^5.5.2",
     "@t3-oss/env-core": "^0.6.1",
     "@types/node": "^18.6.1",
     "discord.js": "^14.14.1",
