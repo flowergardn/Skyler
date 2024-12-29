@@ -1,3 +1,3 @@
-# bot-base
+# Skyler
 
-A simple bot base for the majority of bots I make.
+A simple ticket system for Discord, meant for self-hosting.
