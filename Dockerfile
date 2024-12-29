@@ -1,12 +1,9 @@
-FROM node:18.7.0
+FROM oven/bun:1 AS base
+WORKDIR /app
 
-# Run program in production
 ENV NODE_ENV=production
 
-# Set working directory and add source files
-WORKDIR /app
 COPY . .
 
-# Install dependencies, then run the program
-RUN yarn
-ENTRYPOINT [ "yarn", "start" ]
+USER bun
+ENTRYPOINT [ "bun", "--bun", "run", "src/index.ts" ]
