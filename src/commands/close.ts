@@ -34,7 +34,7 @@ class Close {
 		msgs = msgs.reverse();
 
 		let formatted = msgs.map((msg) => {
-			const time = dayjs().format('MM/DD/YYYY HH:mm:ss');
+			const time = dayjs(msg.createdAt).format('MM/DD/YYYY HH:mm:ss');
 			return `[${time}] ` + msg.author.username + ': ' + msg.cleanContent;
 		});
 
